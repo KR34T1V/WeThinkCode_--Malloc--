@@ -2,7 +2,7 @@
 #	Variables		#
 ###############################################################################
 
-NAME = Malloc
+NAME = libft_malloc_$(HOSTTYPE).so
 AUTHOR = cterblan \| cterblan@student.wethinkcode.co.za
 
 ###############################################################################
@@ -32,8 +32,9 @@ CC = gcc $(CC_FLAGS)
 #	LIBRARIES		#
 ###############################################################################
 
-FT_PRINTF = $(LIB_DIR)/ft_printf
-
+FT_PRINTF = ft_printf
+FT_PRINTF_DIR = $(LIB_DIR)/$(FT_PRINTF)
+FT_PRINTF_FLAGS := -lftprintf
 
 ###############################################################################
 #	RULES			#
@@ -41,12 +42,18 @@ FT_PRINTF = $(LIB_DIR)/ft_printf
 
 all: $(NAME)
 
-$(NAME):
+$(NAME): $(FT_PRINTF)
+	@ar rcs $(NAME) $(OBJ) $(FT_PRINTF_DIR)/obj/*.o
+
+$(FT_PRINTF):
+	@make all -C $(FT_PRINTF_DIR)
 
 clean:
+	@make clean -C $(FT_PRINTF_DIR)
 	@rm -rf $(OBJ_DIR)
 
 fclean: clean
+	@make fclean -C $(FT_PRINTF_DIR)
 	@rm -rf $(NAME)
 
 re: fclean all
