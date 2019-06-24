@@ -2,14 +2,14 @@
 #	Variables		#
 ###############################################################################
 
-NAME = libft_malloc_$(HOSTTYPE).so
+NAME = libft_malloc_.so
 AUTHOR = cterblan \| cterblan@student.wethinkcode.co.za
 
 ###############################################################################
 #	SOURCES			#
 ###############################################################################
 
-SRC = $(shell find . -name *.c)
+SRC = $(shell find . -wholename src/*.c)
 OBJ := $(SRC:%.c=$(OBJ_DIR)%.o)
 
 ###############################################################################
@@ -32,9 +32,8 @@ CC = gcc $(CC_FLAGS)
 #	LIBRARIES		#
 ###############################################################################
 
-FT_PRINTF = ft_printf
-FT_PRINTF_DIR = $(LIB_DIR)/$(FT_PRINTF)
-FT_PRINTF_FLAGS := -lftprintf
+LIBFT = libft
+LIBFT_DIR = $(LIB_DIR)/$(LIBFT)
 
 ###############################################################################
 #	RULES			#
@@ -42,18 +41,18 @@ FT_PRINTF_FLAGS := -lftprintf
 
 all: $(NAME)
 
-$(NAME): $(FT_PRINTF)
-	@ar rcs $(NAME) $(OBJ) $(FT_PRINTF_DIR)/obj/*.o
+$(NAME): $(LIBFT)
+	@ar rcs $(NAME) $(OBJ) $(LIBFT_DIR)/obj/*.o
 
-$(FT_PRINTF):
-	@make all -C $(FT_PRINTF_DIR)
+$(LIBFT):
+	@make all -C $(LIBFT_DIR)
 
 clean:
-	@make clean -C $(FT_PRINTF_DIR)
+	@make clean -C $(LIBFT_DIR)
 	@rm -rf $(OBJ_DIR)
 
 fclean: clean
-	@make fclean -C $(FT_PRINTF_DIR)
+	@make fclean -C $(LIBFT_DIR)
 	@rm -rf $(NAME)
 
 re: fclean all
