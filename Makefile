@@ -1,8 +1,10 @@
 ###############################################################################
 #	Variables		#
 ###############################################################################
-
-NAME = libft_malloc_.so
+ifeq ($(HOSTTYPE),)
+	HOSTTYPE := $(shell uname -m)_$(shell uname -s)
+endif
+NAME = libft_malloc_$(HOSTTYPE).so
 AUTHOR = cterblan \| cterblan@student.wethinkcode.co.za
 
 ###############################################################################
