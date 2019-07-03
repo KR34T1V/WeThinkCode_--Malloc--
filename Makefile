@@ -33,7 +33,7 @@ LIB_DIR := lib
 #								FILES
 ################################################################################
 
-SRC := malloc.c
+SRC := 
 OBJ := $(addprefix $(OBJ_DIR)/, $(SRC:%.c=%.o))
 
 ################################################################################
@@ -63,6 +63,7 @@ $(NAME): $(OBJ)
 	@ar rcs $(NAME) $(OBJ) $(LIBFT_DIR)/obj/*.o
 	@#COMPILE LIBRARY ^^^^^^^
 	@echo "\033[32m\t\t[COMPILED SUCCESSFULLY]\033"
+	@ln -f $(NAME) libft_malloc.so
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@echo "\033[36m\t\t[Building]\033[0m $@"
@@ -82,7 +83,7 @@ cleanlib:
 
 fclean: clean fcleanlib
 	@echo "\033[31m\t\t[FCLEAN]\t$(NAME)\033[0m"
-	@rm -f $(NAME)
+	@rm -f $(NAME) libft_malloc.so
 	@#ADD ADDITIONAL NAME FILES HERE ^^^
 
 fcleanlib:
