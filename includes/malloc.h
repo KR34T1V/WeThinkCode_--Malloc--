@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@students.wethinkcode    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 11:45:36 by cterblan          #+#    #+#             */
-/*   Updated: 2019/07/16 18:15:00 by cterblan         ###   ########.fr       */
+/*   Updated: 2019/07/16 18:29:43 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,9 @@
 	#define						HEAP_META_SIZE sizeof(t_zone)
 	#define						BLOCK_META_SIZE sizeof(t_zone)
 	#define 					ZONE_SIZE getpagesize()
-	#define 					TINY_SIZE 128
-	#define 					SMALL_SIZE 512
-	#define 					FIT_ZONE(S) ((S / ZONE_SIZE) + 1) * ZONE_SIZE
+	#define 					TINY_SIZE 32
+	#define 					SMALL_SIZE 128
+	#define 					FIT_ZONE(S) (((S) / ZONE_SIZE) + 1) * ZONE_SIZE
 	#define 					TINY_ZONE FIT_ZONE(((TINY_SIZE + BLOCK_META_SIZE) * 100) + HEAP_META_SIZE)
 	#define 					SMALL_ZONE FIT_ZONE(((SMALL_SIZE + BLOCK_META_SIZE) * 100) + HEAP_META_SIZE)
 	/*

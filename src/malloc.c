@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@students.wethinkcode    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 11:46:05 by cterblan          #+#    #+#             */
-/*   Updated: 2019/07/16 18:19:55 by cterblan         ###   ########.fr       */
+/*   Updated: 2019/07/16 18:24:32 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,13 @@ void    *ft_malloc(size_t size){
 
 	//Assign new memory zone
 	current = get_zone(&s_base, size);
+	printf("%p:\n\t%p\n\t%p\n\t%d\n\t%zu\n",
+		current,
+		current->next,
+		current->data,
+		current->type,
+		current->size
+	);
 	return allocate(current);
 	return (0);
 }
