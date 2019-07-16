@@ -1,22 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   find_free_block.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cterblan <cterblan@students.wethinkcode    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/12 11:45:56 by cterblan          #+#    #+#             */
-/*   Updated: 2019/07/16 18:15:33 by cterblan         ###   ########.fr       */
+/*   Created: 2019/07/15 20:59:31 by cterblan          #+#    #+#             */
+/*   Updated: 2019/07/15 20:59:32 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/malloc.h"
 
-int main (){
-	unsigned long zone_size = getpagesize()*15;
-	fflush(stdout);
-	void *ptr;
-	printf("Size = %ld\n", HEAP_META_SIZE);
-	ptr = ft_malloc(10);
-    return (0);
+t_block_meta				*find_free_block(size_t size, size_t type)
+{
+	t_zone			*h_run;
+	t_block_meta	*b_run;
+
+	while (h_run){
+		if (h_run->type == type){
+			b_run = h_run->blocks;
+			while (b_run){
+				if (b_run->freed == 1 && b_run->size >= size)
+					return(b_run);
+				b_run = b_run->next;
+			}
+		}
+		h_run = h_run->next;
+	}
+	return (NULL);
 }

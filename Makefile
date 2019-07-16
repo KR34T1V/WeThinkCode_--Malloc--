@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+         #
+#    By: cterblan <cterblan@students.wethinkcode    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/17 11:24:40 by cterblan          #+#    #+#              #
-#    Updated: 2018/08/25 15:48:08 by cterblan         ###   ########.fr        #
+#    Updated: 2019/07/16 18:06:47 by cterblan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ LIB_DIR := lib
 #								FILES
 ################################################################################
 
-SRC := 
+SRC := malloc.c
 OBJ := $(addprefix $(OBJ_DIR)/, $(SRC:%.c=%.o))
 
 ################################################################################
@@ -100,6 +100,10 @@ workspace:
 	@mkdir -p $(LIB_DIR)
 	@touch author
 	@echo $(AUTHOR) > author
+
+test: re
+	@gcc src/main.c libft_malloc.so
+	./a.out
 
 ################################################################################
 #								SPECIAL

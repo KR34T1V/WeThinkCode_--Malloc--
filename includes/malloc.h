@@ -6,12 +6,13 @@
 /*   By: cterblan <cterblan@students.wethinkcode    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 11:45:36 by cterblan          #+#    #+#             */
-/*   Updated: 2019/07/12 12:07:22 by cterblan         ###   ########.fr       */
+/*   Updated: 2019/07/16 18:15:00 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 **  References
+**  https://medium.com/a-42-journey/how-to-create-your-own-malloc-library-b86fedd39b96
 **  https://danluu.com/malloc-tutorial/
 */
 
@@ -23,39 +24,51 @@
 	*/
 	#include "../lib/libft/inc/libft.h"
 	#include <unistd.h>
+	#include <sys/mman.h>
 
 	/*
 	** Defines
 	*/
-	typedef struct              s_block_meta {
-		size_t                  size;
-		int                     free;
-		struct s_block_meta     *next;
-		struct s_block_meta     *previous;
-	}                           t_block_meta;
+	typedef enum	e_type{
+		TINY = 0,
+		SMALL = 1,
+		LARGE = 2
+	}				t_type;
 
-	typedef struct              s_zone {
-		t_block_meta            *block;
-		int					    *type;
+	typedef struct				s_block{
+		void					*data;
+		size_t					size;
+		struct s_block			*next;
+		struct s_block			*previous;
+	}							t_block;
+
+	typedef struct              s_zone{
+		t_type					type;
+		size_t					size;
+		size_t					block_size;
+		t_block					*block_start;
+		void					*data;
 		struct s_zone           *next;
 		struct s_zone           *previous;
 	}                           t_zone;
-	
-	#define 					ZONE_SIZE getpagesize()
-	#define 					TINY 1
-	#define 					SMALL 2
-	#define 					LARGE 4
-	#define						META_SIZE sizeof(t_block_meta)
 
+
+	#define						HEAP_META_SIZE sizeof(t_zone)
+	#define						BLOCK_META_SIZE sizeof(t_zone)
+	#define 					ZONE_SIZE getpagesize()
+	#define 					TINY_SIZE 128
+	#define 					SMALL_SIZE 512
+	#define 					FIT_ZONE(S) ((S / ZONE_SIZE) + 1) * ZONE_SIZE
+	#define 					TINY_ZONE FIT_ZONE(((TINY_SIZE + BLOCK_META_SIZE) * 100) + HEAP_META_SIZE)
+	#define 					SMALL_ZONE FIT_ZONE(((SMALL_SIZE + BLOCK_META_SIZE) * 100) + HEAP_META_SIZE)
 	/*
 	** Global Variables
 	*/
-	t_zone 					    *g_base;
 	
 	/*
 	 ** Declarations
 	 */
-	void					    *malloc(size_t size);
+	void					    *ft_malloc(size_t size);
 	void					    show_alloc_mem();
 	void					    free(void *ptr);
 	void					    *realloc(void *ptr, size_t size);
