@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@students.wethinkcode    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 11:45:36 by cterblan          #+#    #+#             */
-/*   Updated: 2019/07/16 18:29:43 by cterblan         ###   ########.fr       */
+/*   Updated: 2019/07/17 12:33:12 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@
 	/*
 	** Global Variables
 	*/
+	static t_zone 	*s_base = NULL;
 	
 	/*
 	 ** Declarations

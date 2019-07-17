@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@students.wethinkcode    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 11:46:05 by cterblan          #+#    #+#             */
-/*   Updated: 2019/07/16 18:24:32 by cterblan         ###   ########.fr       */
+/*   Updated: 2019/07/17 12:54:08 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_type	what_type(size_t size){
 	}
 }
 
-t_zone	*new_zone(t_zone **base, size_t size)
+t_zone	*new_zone(size_t size)
 {
 	t_zone *ret;
 	t_type type = what_type(size);
@@ -40,66 +40,72 @@ t_zone	*new_zone(t_zone **base, size_t size)
 	ret->size = length - BLOCK_META_SIZE;
 	ret->data = ret + BLOCK_META_SIZE;
 	ret->block_start = NULL;
-	ret->next = *base;
-	if (*base)
+	ret->next = s_base;
+	if (s_base)
 	{
-		ret->previous = (*base)->previous;
-		(*base)->previous = ret;
+		ret->previous = s_base->previous;
+		s_base->previous = ret;
 	}
-	*base = ret;
+	s_base = ret;
 	return ret;
 }
 
-t_zone	*get_zone(t_zone **base, size_t size){
+t_zone	*get_zone(size_t size){
 	t_zone	*run;
-	run = *base;
+	t_block *b_run;
+	run = s_base;
 
 	if (what_type(size) == LARGE)
-		return new_zone(base, size);
+		return new_zone(size);
 	while (run){
 		if (run->type == what_type(size))
 		{
-			t_block *runner2;
-			runner2 = run->block_start;
-			if (!runner2)
+			b_run = run->block_start;
+			if (!b_run)
 				return (run);
-			while (runner2->next)
+			while (b_run->next)
 			{
-				if ((unsigned int)((runner2->next->data) - (runner2->data + runner2->size - 1)) >= size)
+				if ((unsigned int)((b_run->next->data) - (b_run->data + b_run->size - 1)) >= size)
 					return (run);
-				runner2 = runner2->next;
+				b_run = b_run->next;
 			}
-			if ((unsigned int)((run->data + run->size - 1) - (runner2->data + runner2->size - 1)) >= size)
+			if ((unsigned int)((run->data + run->size - 1) - (b_run->data + b_run->size - 1)) >= size)
 				return (run);
 		}
 		run = run->next;
 	}
-	return new_zone(base, size);
+	return new_zone(size);
 }
 
-void	*allocate(t_zone *zone)
+void	*allocate_block(t_zone *zone, size_t size)
 {
-	if (zone)
-		return NULL;
+	t_block			*b_run;
+
+	if (zone && size){
+		b_run = zone->block_start;
+		while (b_run){
+
+		}
+
+	}
 	return(NULL);
 }
 
 void    *ft_malloc(size_t size){
-	static t_zone 	*s_base = NULL;
 	t_zone			*current;
 
 	if (size <= 0)
 		return (0);
 
 	//Assign new memory zone
-	current = get_zone(&s_base, size);
-	printf("%p:\n\t%p\n\t%p\n\t%d\n\t%zu\n",
+	current = get_zone(size);
+	printf("%p:\n\t%p\n\t%p\n\t%d\n\t%lu\n",
 		current,
 		current->next,
 		current->data,
 		current->type,
 		current->size
 	);
-	return allocate(current);
+	return allocate_block(current, size);
 	return (0);
 }
