@@ -11,7 +11,6 @@ int	zone_free(t_zone *zone){
 			zone->next->previous = prev;
 		if (s_base == zone)
 			s_base = NULL;
-		printf("freed\n");
 		munmap(zone, (zone->size + HEAP_META_SIZE));
 		return (1);
 	}

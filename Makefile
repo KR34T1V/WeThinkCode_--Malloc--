@@ -6,7 +6,7 @@
 #    By: cterblan <cterblan@students.wethinkcode    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/17 11:24:40 by cterblan          #+#    #+#              #
-#    Updated: 2019/07/18 21:26:47 by cterblan         ###   ########.fr        #
+#    Updated: 2019/07/18 23:58:24 by cterblan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,7 @@ LIB_DIR := lib
 
 SRC := malloc.c\
 		free.c\
+		show_alloc_mem.c\
 		zone_find.c\
 		zone_new.c\
 		zone_type.c\
@@ -49,6 +50,7 @@ OBJ := $(addprefix $(OBJ_DIR)/, $(SRC:%.c=%.o))
 ################################################################################
 LIBFT_DIR := $(LIB_DIR)/libft
 LIB_FLAG := -lft
+LIBFT_LIB := $(LIBFT_DIR)/libftprintf.a
 
 ################################################################################
 #								COMPILER
@@ -68,7 +70,7 @@ $(NAME): $(OBJ)
 	@echo "\033[35m\t\t[COMPILING] $@\033"
 	@#$(CC) -o $@ -I $(INC_DIR) -L $(LIBFT_DIR)/ $(LIB_FLAG) $(OBJ)
 	@#COMPILE EXECUTABLE ^^^^^^
-	@ar rcs $(NAME) $(OBJ) $(LIBFT_DIR)/obj/*.o
+	@ar rcs $(NAME) $(OBJ) $(LIBFT_DIR)/libftprintf.a
 	@#COMPILE LIBRARY ^^^^^^^
 	@echo "\033[32m\t\t[COMPILED SUCCESSFULLY]\033"
 	@ln -f $(NAME) libft_malloc.so
@@ -89,7 +91,7 @@ cleanlib:
 	@make clean -C $(LIBFT_DIR)
 	@#ADD ADDITIONAL LIBRARIES HERE ^^^
 
-fclean: clean fcleanlib
+fclean: clean
 	@echo "\033[31m\t\t[FCLEAN]\t$(NAME)\033[0m"
 	@rm -f $(NAME) libft_malloc.so
 	@#ADD ADDITIONAL NAME FILES HERE ^^^
@@ -99,7 +101,7 @@ fcleanlib:
 	@make fclean -C $(LIBFT_DIR)
 	@#ADD ADDITIONAL LIBRARIES HERE ^^^
 
-re: fclean all
+re: fclean fcleanlib
 
 workspace:
 	@echo "\033[36m\t\t[Building $@]\033[0m"
@@ -109,7 +111,7 @@ workspace:
 	@touch author
 	@echo $(AUTHOR) > author
 
-test: re
+test: clean all
 	@gcc src/main.c libft_malloc.so
 	./a.out
 
