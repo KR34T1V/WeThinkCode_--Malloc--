@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@students.wethinkcode    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 11:45:36 by cterblan          #+#    #+#             */
-/*   Updated: 2019/07/18 22:07:12 by cterblan         ###   ########.fr       */
+/*   Updated: 2019/07/18 22:50:50 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 	/*
 	** Includes
 	*/
-	#include "../lib/libft/inc/libft.h"
+	#include "../lib/libft/inc/ft_printf.h"
 	#include <unistd.h>
 	#include <sys/mman.h>
 
