@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@students.wethinkcode    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 11:45:36 by cterblan          #+#    #+#             */
-/*   Updated: 2019/07/17 16:03:34 by cterblan         ###   ########.fr       */
+/*   Updated: 2019/07/18 22:07:12 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,12 +74,14 @@
 	 */
 	void					    *ft_malloc(size_t size);
 	void					    show_alloc_mem();
-	void					    free(void *ptr);
+	void					    ft_free(void *ptr);
 	void					    *realloc(void *ptr, size_t size);
 
 	t_zone						*zone_find(size_t size);
 	t_zone						*zone_new(size_t size);
 	t_type						zone_type(size_t size);
+	int							zone_free(t_zone *zone);
 	t_block						*block_new(t_zone *zone, size_t size);
+	void						block_free(t_zone *zone,t_block *block);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: cterblan <cterblan@students.wethinkcode    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/17 11:24:40 by cterblan          #+#    #+#              #
-#    Updated: 2019/07/17 15:46:28 by cterblan         ###   ########.fr        #
+#    Updated: 2019/07/18 21:26:47 by cterblan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,10 +34,13 @@ LIB_DIR := lib
 ################################################################################
 
 SRC := malloc.c\
+		free.c\
 		zone_find.c\
 		zone_new.c\
 		zone_type.c\
-		block_new.c
+		zone_free.c\
+		block_new.c\
+		block_free.c
 		
 OBJ := $(addprefix $(OBJ_DIR)/, $(SRC:%.c=%.o))
 

@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@students.wethinkcode    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 11:45:56 by cterblan          #+#    #+#             */
-/*   Updated: 2019/07/18 20:17:19 by cterblan         ###   ########.fr       */
+/*   Updated: 2019/07/18 22:02:14 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,33 @@
 
 int main (){
 	unsigned long zone_size = getpagesize()*15;
-	fflush(stdout);
-	char *ptr;
+	void *ptr1;
+	void *ptr2;
+	void *ptr3;
+	void *ptr4;
+	t_zone *h_run;
+	t_block *b_run;
+	
 	printf("HEAP MSize = %ld\nBlock MSize = %ld\nPage size: %u\n", HEAP_META_SIZE, BLOCK_META_SIZE, ZONE_SIZE);
-	ptr = ft_malloc(10);
-	ptr = ft_malloc(11);
-	ptr = ft_malloc(12);
+	ptr1 = ft_malloc(10);
+	ptr2 = ft_malloc(11);
+	ptr3 = ft_malloc(12);
+	ptr4 = ft_malloc(13);
+	ft_free(ptr4);
+	ft_free(ptr2);
+	ft_free(ptr3);
+	ft_free(ptr1);
+
+
+	h_run = s_base;
+	while(h_run){
+		b_run = h_run->block_start;
+		while(b_run){
+			printf("Data = %p\n", b_run->data);
+			b_run = b_run->next;
+		}
+		h_run = h_run->next;
+	}
+
     return (0);
 }
