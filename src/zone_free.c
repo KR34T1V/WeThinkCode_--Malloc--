@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@students.wethinkcode    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 13:21:17 by cterblan          #+#    #+#             */
-/*   Updated: 2019/07/19 13:21:17 by cterblan         ###   ########.fr       */
+/*   Updated: 2019/07/19 13:47:05 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	zone_free(t_zone *zone){
 		if (zone->next)
 			zone->next->previous = prev;
 		if (s_base == zone)
-			s_base = NULL;
+			s_base = zone->next;
 		munmap(zone, (zone->size + HEAP_META_SIZE));
 		return (1);
 	}

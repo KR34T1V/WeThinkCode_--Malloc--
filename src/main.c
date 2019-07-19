@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@students.wethinkcode    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 11:45:56 by cterblan          #+#    #+#             */
-/*   Updated: 2019/07/19 13:14:28 by cterblan         ###   ########.fr       */
+/*   Updated: 2019/07/19 13:32:09 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,9 @@ int main (){
 	
 	ptr1 = ft_malloc(10);
 	ptr2 = ft_malloc(117);
+	ft_memset(ptr2, 42, 117);
 	ptr3 = ft_malloc(129);
+	ft_memset(ptr3, 42, 129);
 	ptr4 = ft_malloc(10);
 	show_alloc_mem();
 	ft_realloc(ptr2, 20);
