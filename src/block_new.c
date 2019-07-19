@@ -6,34 +6,39 @@
 /*   By: cterblan <cterblan@student>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 15:45:37 by cterblan          #+#    #+#             */
-/*   Updated: 2019/07/19 15:46:31 by cterblan         ###   ########.fr       */
+/*   Updated: 2019/07/19 16:23:45 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/malloc.h"
 
-t_block	*block_new(t_zone *zone, size_t size)
+static void	fuck_norm(t_zone *z, size_t s, t_block *b_run, t_block **block_loc)
+{
+	if (!b_run)
+	{
+		*block_loc = z->data;
+		z->block_start = *block_loc;
+	}
+	while ((b_run && b_run->next) && !*block_loc)
+	{
+		if ((size_t)(((int64_t)b_run->next) - (int64_t)
+		(b_run->data + ((b_run)->size - 1))) >= (s + BLOCK_META_SIZE))
+		{
+			*block_loc = b_run->data + b_run->size;
+			break ;
+		}
+		b_run = b_run->next;
+	}
+}
+
+t_block		*block_new(t_zone *zone, size_t size)
 {
 	t_block	*b_run;
 	t_block	*block_location;
 
 	block_location = NULL;
 	b_run = (zone->block_start);
-	if (!b_run)
-	{
-		block_location = zone->data;
-		zone->block_start = block_location;
-	}
-	while ((b_run && b_run->next) && !block_location)
-	{
-		if ((size_t)(((int64_t)b_run->next) - (int64_t)
-		(b_run->data + ((b_run)->size - 1))) >= (size + BLOCK_META_SIZE))
-		{
-			block_location = b_run->data + b_run->size;
-			break ;
-		}
-		b_run = b_run->next;
-	}
+	fuck_norm(zone, size, b_run, &block_location);
 	if (b_run && !b_run->next)
 		block_location = b_run->data + b_run->size;
 	if (!block_location)
