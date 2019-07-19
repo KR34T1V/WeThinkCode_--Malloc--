@@ -67,11 +67,11 @@ CC := gcc $(CFLAGS)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	make all -C $(LIBFT_DIR)/
+	make all -C $(PRINTF_DIR)/
 	@echo "\033[35m\t\t[COMPILING] $@\033"
 #	@#$(CC) -o $@ -I $(INC_DIR) -L $(LIBFT_DIR)/ $(LIB_FLAG) $(OBJ)
 	@#COMPILE EXECUTABLE ^^^^^^
-	ar rcs $(NAME) $(OBJ) $(PRINTF_DIR)/obj/*.o $(LIBFT_DIR)/obj/*.o
+	@ar rcs $(NAME) $(OBJ) $(PRINTF_DIR)/obj/*.o $(LIBFT_DIR)/obj/*.o
 	@#COMPILE LIBRARY ^^^^^^^
 	@echo "\033[32m\t\t[COMPILED SUCCESSFULLY]\033"
 	@ln -f $(NAME) libft_malloc.so
@@ -88,8 +88,8 @@ clean: cleanlib
 	@rm -rf $(OBJ_DIR)
 
 cleanlib:
-	@echo "\033[31m\t\t[CLEANING]\t$(LIB_DIR)\033[0m"
-	@make clean -C $(LIBFT_DIR)
+	@echo "\033[31m\t\t[CLEANING]\t$(PRINTF_DIR)\033[0m"
+	@make clean -C $(PRINTF_DIR)
 	@#ADD ADDITIONAL LIBRARIES HERE ^^^
 
 fclean: clean
@@ -99,10 +99,10 @@ fclean: clean
 
 fcleanlib:
 	@echo "\033[31m\t\t[FCLEAN]\t$(LIB_DIR)]\033[0m"
-	@make fclean -C $(LIBFT_DIR)
+	@make fclean -C $(PRINTF_DIR)
 	@#ADD ADDITIONAL LIBRARIES HERE ^^^
 
-re: fclean fcleanlib
+re: fclean fcleanlib all
 
 workspace:
 	@echo "\033[36m\t\t[Building $@]\033[0m"
@@ -112,7 +112,7 @@ workspace:
 	@touch author
 	@echo $(AUTHOR) > author
 
-test: clean all
+test: re
 	@gcc src/main.c libft_malloc.so
 	./a.out
 
