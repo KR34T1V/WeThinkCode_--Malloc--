@@ -6,7 +6,7 @@
 #    By: cterblan <cterblan@students.wethinkcode    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/17 11:24:40 by cterblan          #+#    #+#              #
-#    Updated: 2019/07/18 23:58:24 by cterblan         ###   ########.fr        #
+#    Updated: 2019/07/19 11:06:19 by cterblan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,9 +48,9 @@ OBJ := $(addprefix $(OBJ_DIR)/, $(SRC:%.c=%.o))
 ################################################################################
 #								LIBRARIES
 ################################################################################
-LIBFT_DIR := $(LIB_DIR)/libft
+PRINTF_DIR := $(LIB_DIR)/libft
+LIBFT_DIR := $(PRINTF_DIR)/lib/libft
 LIB_FLAG := -lft
-LIBFT_LIB := $(LIBFT_DIR)/libftprintf.a
 
 ################################################################################
 #								COMPILER
@@ -66,11 +66,11 @@ CC := gcc $(CFLAGS)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@make all -C $(LIBFT_DIR)/
+	make all -C $(LIBFT_DIR)/
 	@echo "\033[35m\t\t[COMPILING] $@\033"
-	@#$(CC) -o $@ -I $(INC_DIR) -L $(LIBFT_DIR)/ $(LIB_FLAG) $(OBJ)
+#	@#$(CC) -o $@ -I $(INC_DIR) -L $(LIBFT_DIR)/ $(LIB_FLAG) $(OBJ)
 	@#COMPILE EXECUTABLE ^^^^^^
-	@ar rcs $(NAME) $(OBJ) $(LIBFT_DIR)/libftprintf.a
+	ar rcs $(NAME) $(OBJ) $(PRINTF_DIR)/obj/*.o $(LIBFT_DIR)/obj/*.o
 	@#COMPILE LIBRARY ^^^^^^^
 	@echo "\033[32m\t\t[COMPILED SUCCESSFULLY]\033"
 	@ln -f $(NAME) libft_malloc.so

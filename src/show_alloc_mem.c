@@ -18,16 +18,16 @@ void	show_alloc_mem()
 	h_run = s_base;
 	while(h_run)
 	{
-		printf("%s : %p\n", determine_size(h_run->type), h_run->data);
+		ft_printf("%s : %p\n", determine_size(h_run->type), h_run->data);
 		b_run = h_run->block_start;
 		while(b_run)
 		{
-			printf("%p - %p : %ld bytes\n", b_run->data, (b_run->data + b_run->size -1), b_run->size);
+			ft_printf("%p - %p : %ld bytes\n", b_run->data, (b_run->data + b_run->size -1), b_run->size);
 			total += b_run->size;
 			b_run = b_run->next;
 		}
 		h_run = h_run->next;
 	}
 	
-	printf("Total : %ld bytes\n", total);
+	ft_printf("Total : %ld bytes\n", total);
 }
