@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 12:38:47 by cterblan          #+#    #+#             */
-/*   Updated: 2019/07/19 16:08:26 by cterblan         ###   ########.fr       */
+/*   Updated: 2019/07/19 16:33:16 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,16 @@ static void	*fuck_norm(void *ptr, size_t size, t_zone *h_run, t_block *b_run)
 		}
 		else
 		{
-			keeper = ft_malloc(size);
+			keeper = malloc(size);
 			ft_memcpy(keeper, ptr, b_run->size);
-			ft_free(ptr);
+			free(ptr);
 			return (keeper);
 		}
 	}
 	return (NULL);
 }
 
-void		*ft_realloc(void *ptr, size_t size)
+void		*realloc(void *ptr, size_t size)
 {
 	t_zone	*h_run;
 	t_block	*b_run;

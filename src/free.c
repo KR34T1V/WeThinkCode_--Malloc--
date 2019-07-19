@@ -6,13 +6,13 @@
 /*   By: cterblan <cterblan@student>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 13:18:16 by cterblan          #+#    #+#             */
-/*   Updated: 2019/07/19 15:49:11 by cterblan         ###   ########.fr       */
+/*   Updated: 2019/07/19 16:25:13 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/malloc.h"
 
-void	ft_free(void *ptr)
+void	free(void *ptr)
 {
 	t_zone	*h_run;
 	t_block	*b_run;
