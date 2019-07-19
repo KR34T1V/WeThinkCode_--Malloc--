@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 11:45:36 by cterblan          #+#    #+#             */
-/*   Updated: 2019/07/19 15:32:39 by cterblan         ###   ########.fr       */
+/*   Updated: 2019/07/19 16:32:47 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,10 +65,10 @@ extern t_zone *g_base;
 /*
 ** Declarations
 */
-void						*ft_malloc(size_t size);
+void						*malloc(size_t size);
 void						show_alloc_mem();
-void						ft_free(void *ptr);
-void						*ft_realloc(void *ptr, size_t size);
+void						free(void *ptr);
+void						*realloc(void *ptr, size_t size);
 
 t_zone						*zone_find(size_t size);
 t_zone						*zone_new(size_t size);
