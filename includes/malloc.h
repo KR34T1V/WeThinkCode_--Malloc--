@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@students.wethinkcode    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 11:45:36 by cterblan          #+#    #+#             */
-/*   Updated: 2019/07/18 22:50:50 by cterblan         ###   ########.fr       */
+/*   Updated: 2019/07/19 12:59:13 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@
 	typedef struct              s_zone{
 		t_type					type;
 		size_t					size;
-		size_t					block_size;
 		t_block					*block_start;
 		void					*data;
 		struct s_zone           *next;
@@ -75,7 +74,7 @@
 	void					    *ft_malloc(size_t size);
 	void					    show_alloc_mem();
 	void					    ft_free(void *ptr);
-	void					    *realloc(void *ptr, size_t size);
+	void					    *ft_realloc(void *ptr, size_t size);
 
 	t_zone						*zone_find(size_t size);
 	t_zone						*zone_new(size_t size);

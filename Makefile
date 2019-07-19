@@ -6,7 +6,7 @@
 #    By: cterblan <cterblan@students.wethinkcode    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/17 11:24:40 by cterblan          #+#    #+#              #
-#    Updated: 2019/07/19 11:06:19 by cterblan         ###   ########.fr        #
+#    Updated: 2019/07/19 12:51:03 by cterblan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,7 @@ LIB_DIR := lib
 
 SRC := malloc.c\
 		free.c\
+		realloc.c\
 		show_alloc_mem.c\
 		zone_find.c\
 		zone_new.c\
