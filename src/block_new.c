@@ -1,6 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   block_new.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cterblan <cterblan@student>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/07/19 15:45:37 by cterblan          #+#    #+#             */
+/*   Updated: 2019/07/19 15:46:31 by cterblan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/malloc.h"
 
-t_block	*block_new(t_zone *zone, size_t size){
+t_block	*block_new(t_zone *zone, size_t size)
+{
 	t_block	*b_run;
 	t_block	*block_location;
 
@@ -13,14 +26,16 @@ t_block	*block_new(t_zone *zone, size_t size){
 	}
 	while ((b_run && b_run->next) && !block_location)
 	{
-		if ((size_t)(((int64_t)b_run->next) - (int64_t)(b_run->data + ((b_run)->size - 1))) >= (size + BLOCK_META_SIZE)){
+		if ((size_t)(((int64_t)b_run->next) - (int64_t)
+		(b_run->data + ((b_run)->size - 1))) >= (size + BLOCK_META_SIZE))
+		{
 			block_location = b_run->data + b_run->size;
 			break ;
 		}
 		b_run = b_run->next;
 	}
 	if (b_run && !b_run->next)
-		block_location =b_run->data + b_run->size;
+		block_location = b_run->data + b_run->size;
 	if (!block_location)
 		return (NULL);
 	block_location->previous = b_run;

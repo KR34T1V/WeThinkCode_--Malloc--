@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   malloc.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cterblan <cterblan@students.wethinkcode    +#+  +:+       +#+        */
+/*   By: cterblan <cterblan@student>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/17 13:51:00 by cterblan          #+#    #+#             */
-/*   Updated: 2019/07/19 11:05:50 by cterblan         ###   ########.fr       */
+/*   Updated: 2019/07/19 15:47:46 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 #include "../includes/malloc.h"
 #include "../includes/global.h"
 
-//RENAME BACK TO MALLOC
-void    *ft_malloc(size_t size){
+void	*ft_malloc(size_t size)
+{
 	t_zone	*current;
 	t_block	*new_block;
 
