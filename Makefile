@@ -6,7 +6,7 @@
 #    By: cterblan <cterblan@student>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/17 11:24:40 by cterblan          #+#    #+#              #
-#    Updated: 2019/07/19 16:32:17 by cterblan         ###   ########.fr        #
+#    Updated: 2019/07/19 16:37:04 by cterblan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,10 +64,9 @@ CC := gcc $(CFLAGS)
 #								RULES
 ################################################################################
 
-all: $(NAME)
+all: update $(NAME)
 
 $(NAME): $(OBJ)
-	@git submodule update --init --recursive
 	@make all -C $(PRINTF_DIR)/
 	@echo "\033[35m\t\t[COMPILING] $@\033"
 #	@#$(CC) -o $@ -I $(INC_DIR) -L $(LIBFT_DIR)/ $(LIB_FLAG) $(OBJ)
@@ -112,7 +111,8 @@ workspace:
 	@mkdir -p $(LIB_DIR)
 	@touch author
 	@echo $(AUTHOR) > author
-
+update:
+	git submodule update --init --recursive
 test: re
 	@gcc src/main.c libft_malloc.so
 	./a.out
