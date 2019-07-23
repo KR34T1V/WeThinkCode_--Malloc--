@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   zone_find.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cterblan <cterblan@student>                +#+  +:+       +#+        */
+/*   By: cterblan <cterblan@students.wethinkcode    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/17 13:50:55 by cterblan          #+#    #+#             */
-/*   Updated: 2019/07/19 15:51:14 by cterblan         ###   ########.fr       */
+/*   Updated: 2019/07/23 23:19:42 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/malloc.h"
+#include "../includes/private_malloc_includes.h"
 
 t_zone	*zone_find(size_t size)
 {

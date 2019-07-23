@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cterblan <cterblan@student>                +#+  +:+       +#+        */
+/*   By: cterblan <cterblan@students.wethinkcode    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 13:18:16 by cterblan          #+#    #+#             */
-/*   Updated: 2019/07/19 16:25:13 by cterblan         ###   ########.fr       */
+/*   Updated: 2019/07/23 23:19:11 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/malloc.h"
+#include "../includes/private_malloc_includes.h"
 
 void	free(void *ptr)
 {

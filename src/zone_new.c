@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   zone_new.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cterblan <cterblan@student>                +#+  +:+       +#+        */
+/*   By: cterblan <cterblan@students.wethinkcode    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/17 13:54:18 by cterblan          #+#    #+#             */
-/*   Updated: 2019/07/19 15:39:06 by cterblan         ###   ########.fr       */
+/*   Updated: 2019/07/23 23:19:51 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/malloc.h"
+#include "../includes/private_malloc_includes.h"
 
 t_zone	*zone_new(size_t size)
 {

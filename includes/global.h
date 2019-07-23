@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   global.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cterblan <cterblan@student>                +#+  +:+       +#+        */
+/*   By: cterblan <cterblan@students.wethinkcode    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/17 15:54:01 by cterblan          #+#    #+#             */
-/*   Updated: 2019/07/19 15:33:44 by cterblan         ###   ########.fr       */
+/*   Updated: 2019/07/23 23:26:04 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define GLOBAL_H
 
 # include "./malloc.h"
+# include <stddef.h>
+
 
 t_zone *g_base = NULL;
 

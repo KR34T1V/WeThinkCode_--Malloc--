@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   malloc.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cterblan <cterblan@student>                +#+  +:+       +#+        */
+/*   By: cterblan <cterblan@students.wethinkcode    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/17 13:51:00 by cterblan          #+#    #+#             */
-/*   Updated: 2019/07/19 16:25:09 by cterblan         ###   ########.fr       */
+/*   Updated: 2019/07/23 23:19:27 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #define BASE_MALLOC
 #include "../includes/malloc.h"
 #include "../includes/global.h"
+#include "../includes/private_malloc_includes.h"
 
 void	*malloc(size_t size)
 {

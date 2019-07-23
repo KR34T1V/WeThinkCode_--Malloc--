@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   malloc.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cterblan <cterblan@student>                +#+  +:+       +#+        */
+/*   By: cterblan <cterblan@students.wethinkcode    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 11:45:36 by cterblan          #+#    #+#             */
-/*   Updated: 2019/07/19 16:32:47 by cterblan         ###   ########.fr       */
+/*   Updated: 2019/07/23 23:15:16 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,8 @@
 /*
 ** Includes
 */
-# include "../lib/libft/inc/ft_printf.h"
-# include <unistd.h>
-# include <sys/mman.h>
-
+# include "../lib/libft/inc/export_ft_printf.h"
+# include <sys/types.h>
 /*
 ** Defines
 */

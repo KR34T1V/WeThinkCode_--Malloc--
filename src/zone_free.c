@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   zone_free.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cterblan <cterblan@student>                +#+  +:+       +#+        */
+/*   By: cterblan <cterblan@students.wethinkcode    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 13:21:17 by cterblan          #+#    #+#             */
-/*   Updated: 2019/07/19 15:44:54 by cterblan         ###   ########.fr       */
+/*   Updated: 2019/07/23 23:19:46 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/malloc.h"
+#include "../includes/private_malloc_includes.h"
 
 int	zone_free(t_zone *zone)
 {

@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   block_new.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cterblan <cterblan@student>                +#+  +:+       +#+        */
+/*   By: cterblan <cterblan@students.wethinkcode    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 15:45:37 by cterblan          #+#    #+#             */
-/*   Updated: 2019/07/19 16:23:45 by cterblan         ###   ########.fr       */
+/*   Updated: 2019/07/23 23:19:06 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/malloc.h"
+#include "../includes/private_malloc_includes.h"
 
 static void	fuck_norm(t_zone *z, size_t s, t_block *b_run, t_block **block_loc)
 {

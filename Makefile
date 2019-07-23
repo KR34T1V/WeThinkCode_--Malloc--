@@ -6,7 +6,7 @@
 #    By: cterblan <cterblan@students.wethinkcode    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/17 11:24:40 by cterblan          #+#    #+#              #
-#    Updated: 2019/07/23 22:57:12 by cterblan         ###   ########.fr        #
+#    Updated: 2019/07/23 23:09:19 by cterblan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -111,8 +111,10 @@ workspace:
 	@mkdir -p $(LIB_DIR)
 	@touch author
 	@echo $(AUTHOR) > author
+
 update:
-	git submodule update --recursive --remote
+	git submodule update --init --recursive --remote
+	
 test: re
 	@gcc src/main.c libft_malloc.so
 	./a.out

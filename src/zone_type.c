@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   zone_type.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cterblan <cterblan@student>                +#+  +:+       +#+        */
+/*   By: cterblan <cterblan@students.wethinkcode    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/17 13:51:03 by cterblan          #+#    #+#             */
-/*   Updated: 2019/07/19 15:48:13 by cterblan         ###   ########.fr       */
+/*   Updated: 2019/07/23 23:19:59 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/malloc.h"
+#include "../includes/private_malloc_includes.h"
 
 t_type	zone_type(size_t size)
 {

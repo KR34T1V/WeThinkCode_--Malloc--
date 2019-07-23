@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   block_free.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cterblan <cterblan@student>                +#+  +:+       +#+        */
+/*   By: cterblan <cterblan@students.wethinkcode    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 13:18:22 by cterblan          #+#    #+#             */
-/*   Updated: 2019/07/19 15:35:39 by cterblan         ###   ########.fr       */
+/*   Updated: 2019/07/23 23:18:37 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/malloc.h"
+#include "../includes/private_malloc_includes.h"
 
 void	block_free(t_zone *zone, t_block *block)
 {
