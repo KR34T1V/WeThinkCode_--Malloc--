@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: cterblan <cterblan@student>                +#+  +:+       +#+         #
+#    By: cterblan <cterblan@students.wethinkcode    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/17 11:24:40 by cterblan          #+#    #+#              #
-#    Updated: 2019/07/19 16:37:04 by cterblan         ###   ########.fr        #
+#    Updated: 2019/07/23 22:55:44 by cterblan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -112,7 +112,7 @@ workspace:
 	@touch author
 	@echo $(AUTHOR) > author
 update:
-	git submodule update --init --recursive
+	git submodule update --recursive --remote
 test: re
 	@gcc src/main.c libft_malloc.so
 	./a.out
