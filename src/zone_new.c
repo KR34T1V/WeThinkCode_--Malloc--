@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/17 13:54:18 by cterblan          #+#    #+#             */
-/*   Updated: 2019/07/24 11:44:19 by cterblan         ###   ########.fr       */
+/*   Updated: 2019/07/24 14:49:19 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ t_zone	*zone_new(size_t size)
 		return (NULL);
 	new_zone->type = type;
 	new_zone->size = length - HEAP_META_SIZE;
-	new_zone->data = new_zone + HEAP_META_SIZE;
+	new_zone->data = new_zone + 1;
 	new_zone->block_start = NULL;
 	new_zone->next = g_base;
 	new_zone->previous = NULL;

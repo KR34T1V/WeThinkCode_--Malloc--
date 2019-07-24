@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 11:45:56 by cterblan          #+#    #+#             */
-/*   Updated: 2019/07/24 11:44:10 by cterblan         ###   ########.fr       */
+/*   Updated: 2019/07/24 16:24:33 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,35 @@
 
 int main (){
 	unsigned long zone_size = getpagesize()*15;
-	void *ptr1;
-	void *ptr2;
-	void *ptr3;
-	void *ptr4;
+	void *ptr1[200];
+	int i = 0;
+
 	t_zone *h_run;
 	t_block *b_run;
 	
-	ptr1 = malloc(10);
-	ptr2 = malloc(117);
-	ptr3 = malloc(129);
-	ptr4 = malloc(10);
+	//101 TINY ALLOCATIONS
+	while (i < 102){
+		ptr1[i] = malloc(32);
+		printf("%d\n", i);
+		i++;
+	}
+	for (int i = 0; i < 50; i++)
+		free(ptr1[i]);
+	
+	i = 0;
+	while (i < 102){
+		ptr1[i] = malloc(32);
+		printf("%d\n", i);
+		i++;
+	}
+	//101 SMALL ALLOCATIONS
+	i = 0;
+	while (i < 102){
+		void *ptr2 = malloc(128);
+		printf("%d\n", i);
+		i++;
+	}
 	show_alloc_mem();
-	realloc(ptr2, 20);
-	show_alloc_mem();
-	free(ptr4);
-	free(ptr3);
 	free(ptr1);
     return (0);
 }

@@ -6,7 +6,7 @@
 #    By: cterblan <cterblan@student>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/17 11:24:40 by cterblan          #+#    #+#              #
-#    Updated: 2019/07/24 11:47:27 by cterblan         ###   ########.fr        #
+#    Updated: 2019/07/24 14:20:19 by cterblan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,7 +57,7 @@ LIB_FLAG := -lft
 #								COMPILER
 ################################################################################
 
-CFLAGS := -Wall -Werror -Wextra -shared
+CFLAGS := -Wall -Werror -Wextra -g
 CC := gcc $(CFLAGS)
 
 ################################################################################
@@ -71,7 +71,7 @@ $(NAME): $(OBJ)
 	@echo "\033[35m\t\t[COMPILING] $@\033"
 #	@#$(CC) -o $@ -I $(INC_DIR) -L $(LIBFT_DIR)/ $(LIB_FLAG) $(OBJ)
 	@#COMPILE EXECUTABLE ^^^^^^
-	@ar rcs $(NAME) $(OBJ) $(PRINTF_DIR)/obj/*.o $(LIBFT_DIR)/obj/*.o
+	@gcc -shared -o $(NAME) $(OBJ) $(PRINTF_DIR)/obj/*.o $(LIBFT_DIR)/obj/*.o
 	@#COMPILE LIBRARY ^^^^^^^
 	@echo "\033[32m\t\t[COMPILED SUCCESSFULLY]\033"
 	@ln -f $(NAME) libft_malloc.so
@@ -115,8 +115,8 @@ workspace:
 update:
 	@git submodule update --init --recursive --remote
 	
-test: re
-	@gcc src/main.c libft_malloc.so
+test: all
+	@gcc src/main.c libft_malloc.so -g
 	./a.out
 
 ################################################################################
