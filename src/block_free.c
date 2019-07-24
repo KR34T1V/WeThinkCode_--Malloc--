@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 13:18:22 by cterblan          #+#    #+#             */
-/*   Updated: 2019/07/24 11:44:05 by cterblan         ###   ########.fr       */
+/*   Updated: 2019/07/24 17:02:49 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,6 @@ void	block_free(t_zone *zone, t_block *block)
 		block->next->previous = block->previous;
 	if (block->previous)
 		block->previous->next = ptr;
-	if ((zone->block_start == block) && !block->next)
-		zone->block_start = NULL;
+	else
+		zone->block_start = ptr;
 }

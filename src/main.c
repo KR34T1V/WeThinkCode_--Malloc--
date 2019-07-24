@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 11:45:56 by cterblan          #+#    #+#             */
-/*   Updated: 2019/07/24 16:24:33 by cterblan         ###   ########.fr       */
+/*   Updated: 2019/07/24 17:02:42 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,23 +27,30 @@ int main (){
 		printf("%d\n", i);
 		i++;
 	}
-	for (int i = 0; i < 50; i++)
-		free(ptr1[i]);
-	
+	show_alloc_mem();
+	ft_putendl("===================================================");
 	i = 0;
 	while (i < 102){
-		ptr1[i] = malloc(32);
-		printf("%d\n", i);
-		i++;
-	}
-	//101 SMALL ALLOCATIONS
-	i = 0;
-	while (i < 102){
-		void *ptr2 = malloc(128);
-		printf("%d\n", i);
+		ptr1[i] = realloc(ptr1[i], 128);
+		printf("S |%d|\n", i);
 		i++;
 	}
 	show_alloc_mem();
-	free(ptr1);
+	ft_putendl("===================================================");
+	i = 0;
+	while (i < 102){
+		ptr1[i] = realloc(ptr1[i], 256);
+		printf("L |%d|\n", i);
+		i++;
+	}
+	show_alloc_mem();
+	ft_putendl("===================================================");
+	i = 0;
+	while (i < 102){
+		free(ptr1[i]);
+		printf("F |%d|\n", i);
+		i++;
+	}
+	show_alloc_mem();
     return (0);
 }

@@ -6,7 +6,7 @@
 #    By: cterblan <cterblan@student>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/17 11:24:40 by cterblan          #+#    #+#              #
-#    Updated: 2019/07/24 14:20:19 by cterblan         ###   ########.fr        #
+#    Updated: 2019/07/24 17:06:00 by cterblan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,7 +57,7 @@ LIB_FLAG := -lft
 #								COMPILER
 ################################################################################
 
-CFLAGS := -Wall -Werror -Wextra -g
+CFLAGS := -Wall -Werror -Wextra
 CC := gcc $(CFLAGS)
 
 ################################################################################
@@ -116,7 +116,7 @@ update:
 	@git submodule update --init --recursive --remote
 	
 test: all
-	@gcc src/main.c libft_malloc.so -g
+	@gcc src/main.c libft_malloc.so
 	./a.out
 
 ################################################################################
