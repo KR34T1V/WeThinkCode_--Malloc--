@@ -113,7 +113,7 @@ workspace:
 	@echo $(AUTHOR) > author
 
 update:
-	git submodule update --init --recursive --remote
+	@git submodule update --init --recursive --remote
 	
 test: re
 	@gcc src/main.c libft_malloc.so

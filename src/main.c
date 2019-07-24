@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cterblan <cterblan@students.wethinkcode    +#+  +:+       +#+        */
+/*   By: cterblan <cterblan@student>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 11:45:56 by cterblan          #+#    #+#             */
-/*   Updated: 2019/07/23 23:19:16 by cterblan         ###   ########.fr       */
+/*   Updated: 2019/07/24 11:44:10 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,15 @@ int main (){
 	t_zone *h_run;
 	t_block *b_run;
 	
-	ptr1 = ft_malloc(10);
-	ptr2 = ft_malloc(117);
-	ft_memset(ptr2, 42, 117);
-	ptr3 = ft_malloc(129);
-	ft_memset(ptr3, 42, 129);
-	ptr4 = ft_malloc(10);
+	ptr1 = malloc(10);
+	ptr2 = malloc(117);
+	ptr3 = malloc(129);
+	ptr4 = malloc(10);
 	show_alloc_mem();
-	ft_realloc(ptr2, 20);
+	realloc(ptr2, 20);
 	show_alloc_mem();
-	ft_free(ptr4);
-	ft_free(ptr3);
-	ft_free(ptr1);
+	free(ptr4);
+	free(ptr3);
+	free(ptr1);
     return (0);
 }

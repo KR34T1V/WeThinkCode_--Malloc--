@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   show_alloc_mem.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cterblan <cterblan@students.wethinkcode    +#+  +:+       +#+        */
+/*   By: cterblan <cterblan@student>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 13:18:54 by cterblan          #+#    #+#             */
-/*   Updated: 2019/07/23 23:19:36 by cterblan         ###   ########.fr       */
+/*   Updated: 2019/07/24 11:44:15 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

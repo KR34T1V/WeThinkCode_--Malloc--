@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   block_free.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cterblan <cterblan@students.wethinkcode    +#+  +:+       +#+        */
+/*   By: cterblan <cterblan@student>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 13:18:22 by cterblan          #+#    #+#             */
-/*   Updated: 2019/07/23 23:18:37 by cterblan         ###   ########.fr       */
+/*   Updated: 2019/07/24 11:44:05 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
