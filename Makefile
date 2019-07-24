@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: cterblan <cterblan@students.wethinkcode    +#+  +:+       +#+         #
+#    By: cterblan <cterblan@student>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/17 11:24:40 by cterblan          #+#    #+#              #
-#    Updated: 2019/07/23 23:09:19 by cterblan         ###   ########.fr        #
+#    Updated: 2019/07/24 11:47:27 by cterblan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,7 +57,7 @@ LIB_FLAG := -lft
 #								COMPILER
 ################################################################################
 
-CFLAGS := -Wall -Werror -Wextra
+CFLAGS := -Wall -Werror -Wextra -shared
 CC := gcc $(CFLAGS)
 
 ################################################################################
