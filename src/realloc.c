@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 12:38:47 by cterblan          #+#    #+#             */
-/*   Updated: 2019/07/25 11:33:34 by cterblan         ###   ########.fr       */
+/*   Updated: 2019/07/25 11:44:53 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void		*realloc(void *ptr, size_t size)
 	void	*keeper;
 
 	if (ptr && size > 0)
-		{
+	{
 		keeper = NULL;
 		h_run = g_base;
 		while (h_run)

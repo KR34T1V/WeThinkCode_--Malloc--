@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 11:45:56 by cterblan          #+#    #+#             */
-/*   Updated: 2019/07/24 17:02:42 by cterblan         ###   ########.fr       */
+/*   Updated: 2019/07/25 11:44:16 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,43 +14,21 @@
 #include "../includes/private_malloc_includes.h"
 
 int main (){
-	unsigned long zone_size = getpagesize()*15;
-	void *ptr1[200];
-	int i = 0;
+	char *str;
 
-	t_zone *h_run;
-	t_block *b_run;
-	
-	//101 TINY ALLOCATIONS
-	while (i < 102){
-		ptr1[i] = malloc(32);
-		printf("%d\n", i);
-		i++;
+	str = (char *)malloc(sizeof(char *) * 20);
+	for (int i = 0; i<19; i++){
+		str[i] = 'a';
 	}
-	show_alloc_mem();
-	ft_putendl("===================================================");
-	i = 0;
-	while (i < 102){
-		ptr1[i] = realloc(ptr1[i], 128);
-		printf("S |%d|\n", i);
-		i++;
+	str[19] = '\0';
+	ft_printf("%s\n",str);
+	realloc(str, 400);
+	for (int i = 0; i<399; i++){
+		str[i] = 'a';
 	}
-	show_alloc_mem();
-	ft_putendl("===================================================");
-	i = 0;
-	while (i < 102){
-		ptr1[i] = realloc(ptr1[i], 256);
-		printf("L |%d|\n", i);
-		i++;
-	}
-	show_alloc_mem();
-	ft_putendl("===================================================");
-	i = 0;
-	while (i < 102){
-		free(ptr1[i]);
-		printf("F |%d|\n", i);
-		i++;
-	}
+	str[399] = '\0';
+	ft_printf("%s\n",str);
+	free(str);
 	show_alloc_mem();
     return (0);
 }
