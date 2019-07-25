@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 12:38:47 by cterblan          #+#    #+#             */
-/*   Updated: 2019/07/24 12:49:31 by cterblan         ###   ########.fr       */
+/*   Updated: 2019/07/25 11:33:34 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,18 +42,21 @@ void		*realloc(void *ptr, size_t size)
 	t_block	*b_run;
 	void	*keeper;
 
-	keeper = NULL;
-	h_run = g_base;
-	while (h_run)
-	{
-		b_run = h_run->block_start;
-		while (b_run)
+	if (ptr && size > 0)
 		{
-			if ((keeper = fuck_norm(ptr, size, h_run, b_run)))
-				return (keeper);
-			b_run = b_run->next;
+		keeper = NULL;
+		h_run = g_base;
+		while (h_run)
+		{
+			b_run = h_run->block_start;
+			while (b_run)
+			{
+				if ((keeper = fuck_norm(ptr, size, h_run, b_run)))
+					return (keeper);
+				b_run = b_run->next;
+			}
+			h_run = h_run->next;
 		}
-		h_run = h_run->next;
 	}
 	return (NULL);
 }

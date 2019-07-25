@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 13:18:16 by cterblan          #+#    #+#             */
-/*   Updated: 2019/07/24 12:49:42 by cterblan         ###   ########.fr       */
+/*   Updated: 2019/07/25 11:34:23 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ void	free(void *ptr)
 {
 	t_zone	*h_run;
 	t_block	*b_run;
-
+	if (!ptr)
+		return ;
 	h_run = g_base;
 	while (h_run)
 	{
